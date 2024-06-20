@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgb(223, 92, 238);
+        }
+
+        .wrapper {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: coral;
+            margin: 15px;
+        }
+
+
+        .image {
+            height: 160px;
+        }
+
+        .yes-btn {
+
+            padding: 8px 15px;
+            background-color: rgb(36, 118, 241);
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .no-btn {
+
+            padding: 8px 15px;
+            background-color: rgb(255, 44, 44);
+            color: white;
+            border: none;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img class="image" src="https://www.icegif.com/wp-content/uploads/2022/08/icegif-583.gif" alt="">
+        <h2 class="question" align="center">あなたをとても愛しています >.< <br>あなたも私を愛していますか?</h2>
+        <div class="btn-group">
+            <button class="yes-btn">はい</button>
+            <button class="no-btn">いいえ</button>
+        </div>
+    </div>
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        const question = document.querySelector('.question');
+        const yesBtn = document.querySelector('.yes-btn');
+        const noBtn = document.querySelector('.no-btn');
+        const image = document.querySelector(".image")
+
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const noBtnRect = noBtn.getBoundingClientRect();
+
+        yesBtn.addEventListener('click', () => {
+            image.src = "https://media1.tenor.com/m/ASElCHMDevkAAAAC/kawaii-hugs.gif";
+            question.innerHTML = "私も愛しているよ >.<";
+            noBtn.remove()
+        });
+
+        noBtn.addEventListener('mouseover', () => {
+            const i = Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width));
+            const j = Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height));
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = i + 'px';
+            noBtn.style.top = j + 'px';
+        });
+    </script>
+</body>
+
+</html>
